@@ -1,0 +1,18 @@
+<resources>
+
+    <string name="app_name">Asteroides</string>
+    <string name="titulo">Asteroides</string>
+    <string name="botonUno">Jugar</string>
+    <string name="botondos">Configurar</string>
+    <string name="botontres">Acerca de</string>
+    <string name="botoncuatro">Salir</string>
+    <string name="botoncinco">Puntuación</string>
+    <string name="msj">Este programa ha sido desarrollado como ejemplo en el curso de Android para demostrar cómo se puede lanzar nuevas actividades desde la actividad principal.</string>
+    <string name="configuracion">Configuración</string>
+    <string name="acercade">Acerca de &#8230;</string>
+    <string name="puntuaciones">Puntuaciones</string>
+    <string name="empty">No hay puntuaciones</string>
+    <string name="prueba">prueba</string>
+
+
+</resources>
