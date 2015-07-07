@@ -1,25 +1,18 @@
 package com.example.navegationdrawerejemplouno;
 
-import android.app.Activity;
-
 import android.app.ActionBar;
+import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
-import android.content.Context;
-import android.os.Build;
 import android.os.Bundle;
-import android.view.Gravity;
+import android.support.v4.widget.DrawerLayout;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.support.v4.widget.DrawerLayout;
-import android.widget.ArrayAdapter;
-import android.widget.TextView;
 
-public class MainActivity extends Activity implements
-		NavigationDrawerFragment.NavigationDrawerCallbacks {
+public class MainActivity extends Activity implements NavigationDrawerFragment.NavigationDrawerCallbacks {
 
 	/**
 	 * Fragment managing the behaviors, interactions and presentation of the
@@ -38,6 +31,7 @@ public class MainActivity extends Activity implements
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 
+				
 		mNavigationDrawerFragment = (NavigationDrawerFragment) getFragmentManager()
 				.findFragmentById(R.id.navigation_drawer);
 		mTitle = getTitle();
@@ -51,10 +45,7 @@ public class MainActivity extends Activity implements
 	public void onNavigationDrawerItemSelected(int position) {
 		// update the main content by replacing fragments
 		FragmentManager fragmentManager = getFragmentManager();
-		fragmentManager
-				.beginTransaction()
-				.replace(R.id.container,
-						PlaceholderFragment.newInstance(position + 1)).commit();
+		fragmentManager.beginTransaction().replace(R.id.container,PlaceholderFragment.newInstance(position + 1)).commit();
 	}
 
 	public void onSectionAttached(int number) {
@@ -72,10 +63,39 @@ public class MainActivity extends Activity implements
 	}
 
 	public void restoreActionBar() {
-		ActionBar actionBar = getActionBar();
-		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
-		actionBar.setDisplayShowTitleEnabled(true);
-		actionBar.setTitle(mTitle);
+//		ActionBar actionBar = getActionBar();
+//		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
+//		actionBar.setDisplayShowTitleEnabled(true);
+//		actionBar.setTitle(mTitle);
+		
+ActionBar abar = getActionBar();
+		
+		abar.setTitle("titulooo");
+		abar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
+		ActionBar.Tab tab1 = abar.newTab().setText("tab uno");
+		ActionBar.Tab tab2 = abar.newTab().setText("tab dos");
+		ActionBar.Tab tab3 = abar.newTab().setText("tab tres");
+		ActionBar.Tab tab4 = abar.newTab().setText("tab cuatro");
+
+		Fragment tab1Frag = new Fragment_Tab();
+		Fragment tab2Frag = new Fragment_Tab();
+		Fragment tab3Frag = new Fragment_Tab();
+		Fragment tab4Frag = new Fragment_Tab();
+		
+		tab1.setTabListener(new MiTabListener(tab1Frag) );
+		tab2.setTabListener(new MiTabListener(tab2Frag) );
+		tab3.setTabListener(new MiTabListener(tab3Frag) );
+		tab4.setTabListener(new MiTabListener(tab4Frag) );
+		
+		abar.addTab(tab1);
+		abar.addTab(tab2);
+		abar.addTab(tab3);
+		abar.addTab(tab4);
+		
+		abar.setDisplayShowTitleEnabled(true);
+		abar.setTitle(mTitle);
+		
+
 	}
 
 	@Override
